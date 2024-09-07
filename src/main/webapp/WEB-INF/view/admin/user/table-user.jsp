@@ -40,9 +40,9 @@
                                             <td>${user.email}</td>
                                             <td>${user.fullName}</td>
                                             <td>
-                                                <button class="btn btn-success">View</button>
-                                                <button class="btn btn-warning mx-2">Update</button>
-                                                <button class="btn btn-danger">Detele</button>
+                                                <a class="btn btn-success" href="/admin/user/${user.id}">View</a>
+                                                <a class="btn btn-warning mx-2" href="/admin/user/update/${user.id}">Update</a>
+                                                <a class="btn btn-danger">Detele</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
