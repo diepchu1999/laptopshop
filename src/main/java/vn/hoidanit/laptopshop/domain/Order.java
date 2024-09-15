@@ -18,14 +18,15 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne()
+    private double totalPrice;
+
+    // user id
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderDetail> orderDetails;
-
-    private double totalPrice;
+    List<OrderDetail> orderDetails;
 
     public long getId() {
         return id;
@@ -33,11 +34,6 @@ public class Order {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "Oder [id=" + id + ", user=" + user + ", totalPrice=" + totalPrice + "]";
     }
 
     public double getTotalPrice() {
@@ -48,11 +44,9 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    public User getUser() {
-        return user;
+    @Override
+    public String toString() {
+        return "Order [id=" + id + ", totalPrice=" + totalPrice + "]";
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
